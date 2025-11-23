@@ -153,10 +153,10 @@ sub common_key_bindings{
 	my $win = $self->win_obj;
 
     # Key bindings: common actions
-    $win->bind(
-		'<Control-Key-v>',
-		sub{gui_window::about->open;}
-	);
+    #$win->bind(
+	#	'<Control-Key-v>',
+	#	sub{gui_window::about->open;}
+	#);
 	$win->bind(
 		'<Control-Key-w>',
 		sub{$::main_gui->{menu}->mc_close_project;}
