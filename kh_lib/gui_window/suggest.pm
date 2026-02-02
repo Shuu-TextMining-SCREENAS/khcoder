@@ -106,16 +106,20 @@ sub _new{
 
     # Key bindings: tabs (this window only!)
     $win->bind('<Alt-p>' => sub { $self->{nb}->raise('proj'); });
-    $win->bind('<Alt-P>' => sub { $self->{nb}->raise('proj'); });
     $win->bind('<Alt-r>' => sub { $self->{nb}->raise('prep'); });
-    $win->bind('<Alt-R>' => sub { $self->{nb}->raise('prep'); });
     $win->bind('<Alt-w>' => sub { $self->{nb}->raise('words'); });
-    $win->bind('<Alt-W>' => sub { $self->{nb}->raise('words'); });
     $win->bind('<Alt-c>' => sub { $self->{nb}->raise('codes'); });
-    $win->bind('<Alt-C>' => sub { $self->{nb}->raise('codes'); });
+
+    $win->bind('<Alt-t>' => sub { $self->main_menu_trigger("t"); });
+    $win->bind('<Alt-h>' => sub { $self->main_menu_trigger("h"); });
 
     $self->refresh;
     $self->follow_main if $::config_obj->suggest_stands_with_main;
+
+    # Keep suggest window in front of the main window while main is active.
+    if ( $self->win_obj->can('transient') ) {
+        $self->win_obj->transient( $::main_gui->{main_window}->win_obj );
+    }
 
     # set to natural size
     $self->{win_obj}->geometry("");
@@ -129,6 +133,57 @@ sub _new{
 	$self->{win_obj}->focus;
 
     return $self;
+}
+
+sub main_menu_trigger {
+    my $self = shift;
+    my $key = shift;
+
+    my $vk = ord( uc($key) );
+
+    # forcus main window
+    my $main_win = $::main_gui->{main_window}->win_obj;
+    $main_win->focusForce;
+
+    # Windows: send an actual Alt+T keystroke to trigger the menubar mnemonic.
+    # Tk eventGenerate often does not open the native menubar.
+    if ( $^O eq 'MSWin32' ) {
+        $main_win->after(
+            1,
+            sub {
+                my $sent = 0;
+                eval {
+                    require Win32::API;
+                    Win32::API->Import('user32', 'keybd_event', 'NNNN', 'V');
+
+                    my $VK_MENU = 0x12; # Alt
+                    my $VK_T    = $vk;  # $key
+                    my $KEYEVENTF_KEYUP = 0x0002;
+
+                    keybd_event($VK_MENU, 0, 0, 0);
+                    keybd_event($VK_T,    0, 0, 0);
+                    keybd_event($VK_T,    0, $KEYEVENTF_KEYUP, 0);
+                    keybd_event($VK_MENU, 0, $KEYEVENTF_KEYUP, 0);
+                    $sent = 1;
+                    1;
+                };
+
+                unless ($sent) {
+                    print "fail safe: sending Alt+$key via eventGenerate\n";
+                    $main_win->eventGenerate("<Alt-Key-$key>");
+                }
+            }
+        );
+        return;
+    }
+    # macOS
+    elsif ( $^O eq 'darwin' ) {
+        $::main_gui->{main_window}->win_obj->TraverseToMenu('t');
+    }
+    # Other OS: best-effort
+    else { 
+        $main_win->after(1, sub { $main_win->eventGenerate("<Alt-Key-$key>"); });
+    }
 }
 
 sub delayed_follow{
