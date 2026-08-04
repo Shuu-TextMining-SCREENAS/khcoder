@@ -214,7 +214,7 @@ sub follow_main{
             my $x2 = $3;
             my $y2 = $4;
             
-            $x2 = $x1 + $w1 + 10 * $self->{scale} / 100; # 10px for 100% scale
+            $x2 = int( $x1 + $w1 + 10 * $self->{scale} / 100 ); # 10px for 100% scale
             $y2 = $y1;
 
             my $g3 = $w2.'x'.$h2.'+'.$x2.'+'.$y2;
