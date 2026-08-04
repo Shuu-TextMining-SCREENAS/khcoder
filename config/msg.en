@@ -1324,6 +1324,8 @@ screen_code::assistant:
     label_use_plugin:         'NegationChecker '
     plugin_synonym:           《M》 Synonym
     use_plugin:               use plugin
+    wordcloud_button:         《M》 Wordcloud
+    wordcloud_button2:        《M》 Wordcloud*
 screen_code::rde_menu:
     err_edit:                 Projectdata cannot edit.
     err_not_exist:            Projectdata don't exist.
