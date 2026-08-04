@@ -528,7 +528,7 @@ gui_window::main::menu:
     run_prep_dialog:          |-
         Run Pre-Processing now?
         This may take some time.
-
+        
         Note: Pre-Processing extracts and organizes words
         in preparation for analysis.
     som:                      Self-Organizing Map
@@ -792,8 +792,17 @@ gui_window::sql_select:
     rows:                     '  Rows: '
     sql_error:                An Error in the SQL Statement.
     win_title:                Execute SQL Statements
+gui_window::stop_words:
+    change_will:              |-
+        * Changes will take effect when you invoke
+        the "Run Preprocessing" command (again).
+    for_this_method:          'Stop words for the following method:'
+    lang:                     'Language:'
+    select_all:               Select ALL
 gui_window::suggest:
-    check_morpho:             "Check the Result of\nWord Extraction"
+    check_morpho:             |-
+        Check the Result of
+        Word Extraction
     codes:                    Codes
     codes_new:                New Coding Rule file
     proj_new:                 New Project
@@ -802,15 +811,8 @@ gui_window::suggest:
     proj_tuto_folder:         Open tutorial Folder
     show_on_startup:          Show on startup
     stands_with_main:         Follow the main screen
-    win_title:                Suggest - KH Coder
+    win_title:                'Suggest - KH Coder'
     words:                    Words
-gui_window::stop_words:
-    change_will:              |-
-        * Changes will take effect when you invoke
-        the "Run Preprocessing" command (again).
-    for_this_method:          'Stop words for the following method:'
-    lang:                     'Language:'
-    select_all:               Select ALL
 gui_window::sysconfig:
     apps:                     Applications
     browse_:                  Please open ____

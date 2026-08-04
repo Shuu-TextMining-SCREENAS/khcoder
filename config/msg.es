@@ -510,6 +510,7 @@ gui_window::main::menu:
     kwic:                     Concordancia KWIC
     man:                      Manual (PDF)
     mds:                      Escalamiento multidimensional
+    net_cloud:                '***not translated*** Context Cloud // 文脈クラウド'
     netg:                     Red de coocurrencias
     new:                      Nuevo
     noun_phrases:             '***not translated*** Noun Phrases // 名詞を連結'
@@ -533,7 +534,17 @@ gui_window::main::menu:
     project:                  Proyecto
     read:                     Importar Variables
     run_prep:                 Ejecutar Preprocesamiento
+    run_prep_dialog:          |-
+        ***not translated*** Run Pre-Processing now?
+        This may take some time.
+        
+        Note: Pre-Processing extracts and organizes words
+        in preparation for analysis. // 今すぐ前処理を実行してよろしいですか？
+        この処理には時間がかかる場合があります。
+        
+        ※前処理とは分析の準備のために、語を抽出・整理する処理です。
     som:                      Mapa autoorganizado
+    suggest:                  '***not translated*** Show suggest window // サジェスト画面'
     term_vec_mtrx:            Exportar Matriz Palabra-Contexto
     text_format:              Convertir Archivo de Destino
     tf_df:                    Diagrama FT-FD
@@ -798,6 +809,23 @@ gui_window::stop_words:
     for_this_method:          'Palabras vacías para el siguiente método:'
     lang:                     'Idioma:'
     select_all:               Seleccionar TODO
+gui_window::suggest:
+    check_morpho:             |-
+        ***not translated*** Check the Result of
+        Word Extraction // 語の抽出結果を確認
+    codes:                    '***not translated*** Codes // コーディング (C)'
+    codes_new:                '***not translated*** New Coding Rule file // 新規コーディングルール・ファイル'
+    proj_new:                 '***not translated*** New Project // 新規プロジェクト作成'
+    proj_open:                '***not translated*** Open a Project // プロジェクトを開く'
+    proj_tuto:                |-
+        ***not translated*** New Project
+        with Tutorial file // チュートリアル・ファイルで
+        プロジェクト作成
+    proj_tuto_folder:         '***not translated*** Open tutorial Folder // チュートリアル・フォルダを開く'
+    show_on_startup:          '***not translated*** Show on startup // 起動時にサジェスト画面を表示'
+    stands_with_main:         '***not translated*** Follow the main screen // メイン画面に追従する'
+    win_title:                '***not translated*** Suggest - KH Coder // サジェスト - KH Coder'
+    words:                    '***not translated*** Words // 抽出語 (W)'
 gui_window::sysconfig:
     L_kr:                     Coreano
     apps:                     Aplicaciones
@@ -1317,6 +1345,8 @@ screen_code::assistant:
     label_use_plugin:         '***not translated*** NegationChecker  // 《文錦》 否定表現チェッカー '
     plugin_synonym:           '***not translated*** 《M》 Synonym // 《文錦》 表記ゆれ＆同義語'
     use_plugin:               '***not translated*** use plugin // 《文錦》 による結果表示'
+    wordcloud_button:         '***not translated*** 《M》 Wordcloud // 《文錦》 ワードクラウド'
+    wordcloud_button2:        '***not translated*** 《M》 Wordcloud* // 《文錦》 ワードクラウド※'
 screen_code::rde_menu:
     err_edit:                 |-
         ***not translated*** Projectdata cannot edit. // プロジェクトデータの編集処理に失敗しました。

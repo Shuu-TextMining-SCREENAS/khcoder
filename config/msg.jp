@@ -530,7 +530,7 @@ gui_window::main::menu:
     run_prep_dialog:          |-
         今すぐ前処理を実行してよろしいですか？
         この処理には時間がかかる場合があります。
-
+        
         ※前処理とは分析の準備のために、語を抽出・整理する処理です。
     som:                      自己組織化マップ
     suggest:                  サジェスト画面
@@ -796,6 +796,11 @@ gui_window::sql_select:
     rows:                     '  出力された行数： '
     sql_error:                SQL文にエラーがありました。
     win_title:                SQL文の実行
+gui_window::stop_words:
+    change_will:              "※前処理を（再度）実行するまで\n変更は反映されません。"
+    for_this_method:          Stop wordを以下の抽出方法と言語むけに設定：
+    lang:                     言語：
+    select_all:               すべて選択
 gui_window::suggest:
     check_morpho:             語の抽出結果を確認
     codes:                    コーディング (C)
@@ -803,16 +808,11 @@ gui_window::suggest:
     proj_new:                 新規プロジェクト作成
     proj_open:                プロジェクトを開く
     proj_tuto:                "チュートリアル・ファイルで\nプロジェクト作成"
-    proj_tuto_folder:         "チュートリアル・フォルダを開く"
+    proj_tuto_folder:         チュートリアル・フォルダを開く
     show_on_startup:          起動時にサジェスト画面を表示
     stands_with_main:         メイン画面に追従する
-    win_title:                サジェスト - KH Coder
+    win_title:                'サジェスト - KH Coder'
     words:                    抽出語 (W)
-gui_window::stop_words:
-    change_will:              "※前処理を（再度）実行するまで\n変更は反映されません。"
-    for_this_method:          Stop wordを以下の抽出方法と言語むけに設定：
-    lang:                     言語：
-    select_all:               すべて選択
 gui_window::sysconfig:
     apps:                     外部アプリケーション
     browse_:                  ____を開いてください。
